@@ -7,8 +7,6 @@ class Excel extends Component {
     constructor(props) {
         super(props);
         this.check = this.check.bind(this);
-        // this.edit = this.edit.bind(this);
-        // this.handleSubmit = this.handleSubmit.bind(this);
         this.state = {
             descending: false,
             editing: null
@@ -43,7 +41,6 @@ class Excel extends Component {
         let row = this.state.editing.row;
         let col = this.state.editing.column;
         var input = event.target.firstChild;
-        console.log(input.value);
         data[row][col] = input.value;
         this.setState({
             editing: null
