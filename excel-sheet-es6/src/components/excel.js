@@ -7,8 +7,11 @@ class Excel extends Component {
     constructor(props) {
         super(props);
         this.check = this.check.bind(this);
+        // this.edit = this.edit.bind(this);
+        // this.handleSubmit = this.handleSubmit.bind(this);
         this.state = {
-            descending: false
+            descending: false,
+            editing: null
         }
         this.headers = headers;
         this.data = data;
@@ -24,10 +27,34 @@ class Excel extends Component {
                 (a[column] > b[column] ? 1 : -1);
         })
     }
-    render() {
-        let arrow = !this.state.descending ? <Glyphicon glyph="arrow-up" />:<Glyphicon glyph="arrow-down" />;
-        return (
 
+    edit(i, event) {
+        let editingValue = {
+            row: i,
+            column: event.target.cellIndex
+        }
+        this.setState({
+            editing: editingValue
+        });
+    }
+
+    handleSubmit(event) {
+        event.preventDefault();
+        let row = this.state.editing.row;
+        let col = this.state.editing.column;
+        var input = event.target.firstChild;
+        console.log(input.value);
+        data[row][col] = input.value;
+        this.setState({
+            editing: null
+        })
+    }
+
+    render() {
+        let arrow = !this.state.descending ? <Glyphicon glyph="arrow-up" /> : <Glyphicon glyph="arrow-down" />;
+        let editing = this.state.editing;
+        let content = null;
+        return (
             <Table striped bordered condensed hover>
                 <thead>
                     <tr>
@@ -38,13 +65,20 @@ class Excel extends Component {
                 </thead>
                 <tbody>
                     {
-                        this.data.map((arr, aIndex) =>
-                            <tr key={aIndex}>
-                                {arr.map((d, dIndex) =>
-                                    <td key={dIndex}>
-                                        {d}
+                        this.data.map((arr, rIndex) =>
+                            <tr key={rIndex} onDoubleClick={this.edit.bind(this, rIndex)}>
+                                {arr.map(function (d, dIndex) {
+                                    content = d;
+                                    if (editing && editing.row === rIndex && editing.column === dIndex) {
+                                        content = <form onSubmit={this.handleSubmit.bind(this)}>
+                                            <input type="text" defaultValue={content} />
+                                        </form>
+                                    }
+                                    return <td key={dIndex}>
+                                        {content}
                                     </td>
-                                )}
+                                }, this)
+                                }
                             </tr>
                         )
                     }
