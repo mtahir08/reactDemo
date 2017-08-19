@@ -16,18 +16,12 @@
     <script type="text/babel">
         class HelloWorld extends React.Component {
             render() {
-                return <div>Hello World From Child </div> 
+                return <div>Hello World </div>
             }
         }
-
-        class Main extends React.Component {
-            render() {
-                return <HelloWorld />
-            }
-        }
-        
         let ele = document.getElementById("root");
-        ReactDOM.render(<Main />, ele)
+        ReactDOM.render(<HelloWorld />, document.getElementById("root"))
+  
     </script>
 </body>
 
