@@ -1,5 +1,5 @@
 const ActionTypes = {
-    INCREMENT: "INCREMENT",
+    INCREMENT: "ADD",
     DECREMENT: "DECREMENT"
 }
 

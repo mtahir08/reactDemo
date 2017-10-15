@@ -1,14 +1,21 @@
 import ActionTypes from './actionTypes';
 
-class StoreAction {
+// class StoreAction {
 
-    static increment() {
+//     static increment() {
+//         return ActionTypes.INCREMENT
+//     }
+
+//     static decrement() {
+//         return ActionTypes.DECREMENT
+//     }
+// }
+
+const StoreAction = {
+    increment: function () {
         return ActionTypes.INCREMENT
-    }
-
-    static decrement() {
+    }, decrement: function () {
         return ActionTypes.DECREMENT
     }
 }
-
 export default StoreAction 

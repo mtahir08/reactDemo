@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import StoreAction from '../store/actions/action';
+import actionType from '../store/actions/actionTypes';
+
 import Counter from '../components/counter';
 
 function mapStateToProps(state) {
@@ -13,8 +15,11 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
+        // increment: (value) => {
+        //     return dispatch({ type: actionType.INCREMENT, val: value })
+        // },
+        // decrement: () => dispatch({ type: actionType.DECREMENT })
         increment: (value) => {
-            // var num = +document.getElementById("num").value;
             return dispatch({ type: StoreAction.increment(), val: value })
         },
         decrement: () => dispatch({ type: StoreAction.decrement() })
