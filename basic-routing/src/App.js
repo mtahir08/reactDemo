@@ -1,21 +1,25 @@
 import React, { Component } from 'react';
-import './App.css';
+import { Link } from 'react-router-dom';
 
-import Router from './js/router.js'
 class App extends Component {
   render() {
-    const mapping = {
-      '#profile': <div>Profile(<a href="#">Home</a>)</div>,
-      '#accounts': <div>Accounts(<a href="#">Home</a>)</div>,
-      '*': <div>Dashboard<br />
-        <a href="#profile">Profile</a>
-        <br />
-        <a href="#accounts">Accounts</a>
-      </div>
-    }
+    return (
+      <div>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact</Link>
+          </li>
+        </ul>
 
-    const element = <Router mapping={mapping} />
-    return element
+        <hr />
+      </div>
+    );
   }
 }
 export default App;

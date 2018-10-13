@@ -1,22 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import { Router, Route, browserHistory, IndexRoute } from 'react-router';
-
-import Content from './container/content/content';
-import About from './components/About/About';
-import Services from './components/Services/Services';
+import About from './components/about';
+import Contact from './components/contact';
+import Details from './components/details';
+import Home from './components/home';
+import App from './App';
 import './index.css';
 
-ReactDOM.render((
-  <Router history={browserHistory}>
-    <Route path="/">
-      <IndexRoute component={Content} />
-      <Route path="/about" component={About} />
-      <Route path="/services" component={Services} />
-      
-    </Route>
-  </Router>
-),
+ReactDOM.render(
+  <Router>
+    <div>
+      <App />
+      <Route exact path="/" component={Home} />
+      <Route exact path="/about" component={About} />
+      <Route path="/detail/:id" component={Details} />
+      <Route path="/contact" component={Contact} />
+    </div>
+  </Router>,
   document.getElementById('root')
 );
