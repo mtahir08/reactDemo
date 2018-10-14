@@ -1,9 +1,12 @@
-import * as firebase from 'firebase'
+import * as firebase from 'firebase';
 
 // Initialize Firebase
 var config = {
-    apiKey: "<API_KEY>",
-    authDomain: "<PROJECT_ID>.firebaseapp.com",
-    databaseURL: "https://<DATABASE_NAME>.firebaseio.com"
+  apiKey: 'AIzaSyCuhnzS_yv9XgPx-2V6P1dr3WCCrQZPLto',
+  authDomain: 'cmad-react-theory.firebaseapp.com',
+  databaseURL: 'https://cmad-react-theory.firebaseio.com',
+  projectId: 'cmad-react-theory',
+  storageBucket: 'cmad-react-theory.appspot.com',
+  messagingSenderId: '464434282798'
 };
 firebase.initializeApp(config);
