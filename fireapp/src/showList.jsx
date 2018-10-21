@@ -13,7 +13,6 @@ import AddIcon from '@material-ui/icons/Add';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 
-import PropChecking from './props';
 class ShowList extends Component {
   ref = firebase.database().ref();
   state = {
@@ -37,17 +36,22 @@ class ShowList extends Component {
   };
 
   deleteItem = id => {
-    this.ref.child('users').child(id).remove();
+    this.ref
+      .child('users')
+      .child(id)
+      .remove();
   };
-  
 
   editItem = obj => {
     console.log(obj);
-    this.ref.child('users').child(obj.id).set({
-      name:"jhone 2",
-      email:'example@email.com',
-      contact:'newcontact'
-    })
+    this.ref
+      .child('users')
+      .child(obj.id)
+      .set({
+        name: 'jhone 2',
+        email: 'example@email.com',
+        contact: 'newcontact'
+      });
   };
 
   render() {
@@ -55,7 +59,7 @@ class ShowList extends Component {
     const { data } = this.state;
     return (
       <Paper className={classes.root}>
-        {/* <Table className={classes.table}>
+        <Table className={classes.table}>
           <TableHead>
             <TableRow>
               <TableCell numeric> S.No</TableCell>
@@ -100,7 +104,7 @@ class ShowList extends Component {
                 );
               })}
           </TableBody>
-        </Table> */}
+        </Table>
         <Button
           variant="fab"
           className={classes.fab}
@@ -109,15 +113,13 @@ class ShowList extends Component {
         >
           <AddIcon />
         </Button>
-        <PropChecking data={data} clickHandler={this.showClick}/>
       </Paper>
     );
   }
 }
 
 ShowList.propTypes = {
-  classes: PropTypes.object.isRequired,
-  // data: PropTypes.arrayOf(PropTypes.shape({})).isRequired
+  classes: PropTypes.object.isRequired
 };
 
 const styles = theme => ({
