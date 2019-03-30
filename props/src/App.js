@@ -32,7 +32,7 @@ class App extends Component {
       <div className="App">
         <button onClick={this.increament.bind(this)}>Increament</button>
         <button onClick={this.decreament.bind(this)}>Decreament</button><br />
-       <input type="text" onChange={(ev) => { this.changeHandler(ev) }} />
+        <input type="text" onChange={(ev) => { this.changeHandler(ev) }} />
         <ShowData show_counter={this.state.counter} show_name={this.state.name} />
       </div>
 
