@@ -4,7 +4,7 @@ import Menu from './menu';
 
 class App extends Component {
   render() {
-   return <Menu />
+    return <Menu />
   }
 }
 export default App;
