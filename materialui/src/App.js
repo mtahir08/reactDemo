@@ -29,7 +29,7 @@ class App extends Component {
               <MenuIcon />
             </IconButton>
             <Typography
-              variant="title"
+              variant="subtitle1"
               color="inherit"
               className={classes.grow}
             >
@@ -38,7 +38,7 @@ class App extends Component {
             <Button color="inherit">Login</Button>
           </Toolbar>
         </AppBar>
-        <img src={logo} className={classes.imgSize} />
+        <img src={logo} className={classes.imgSize} alt="logo" />
       </div>
     );
   }
