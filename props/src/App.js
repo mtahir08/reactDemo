@@ -17,15 +17,17 @@ class App extends Component {
   }
 
   increament() {
-    this.setState({ counter: ++this.state.counter })
+    this.setState({ counter: this.state.counter + 1 })
   }
 
   decreament() {
-    this.setState({ counter: --this.state.counter })
+    this.setState({ counter: this.state.counter - 1 })
   }
+
   changeHandler(ev) {
     this.setState({ name: ev.target.value });
   }
+
   render() {
     return (
 
