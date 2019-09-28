@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function App() {
+function ObjectState() {
     let [obj, setObj] = useState({ name: "", age: 0 });
 
     const updateObject = () => {
@@ -14,11 +14,11 @@ function App() {
     }
 
     return (
-        <div className="App">
+        <div>
             {obj.name} - {obj.age} - {obj.class} <br />
             <button onClick={updateObject}>Update Object</button>
         </div >
     );
 }
 
-export default App;
+export default ObjectState;
