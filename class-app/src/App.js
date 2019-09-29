@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 // Custom components
 import Signin from "./components/Signin/Signin";
-import Signup from "./components/Signup";
+import Signup from "./components/Signup/Signup";
 import './App.css';
 
 
