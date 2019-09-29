@@ -7,15 +7,15 @@ import './App.css';
 
 
 function App() {
-  const [isLogin, setIsLogin] = useState(true);
+  const [component, setComponent] = useState('signin');
   return (
     <div className="App">
       <header className="App-header">
-        <div className="header-btn" onClick={() => { setIsLogin(true) }}>LOGIN</div>
-        <div className="header-btn" onClick={() => { setIsLogin(false) }}>SIGNUP</div>
+        <div className="header-btn" onClick={() => { setComponent('signin') }}>LOGIN</div>
+        <div className="header-btn" onClick={() => { setComponent('signup') }}>SIGNUP</div>
       </header>
       <section>
-        {isLogin ? <Signin /> : <Signup />}
+        {component === 'signin' ? <Signin /> : <Signup />}
       </section>
     </div>
   );

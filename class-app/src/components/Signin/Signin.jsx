@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
+
+import InputBox from './../../common/InputBox';
+
 import './Signin.css'
 function SignIn() {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    console.log(email, password);
     return (<div className="root">
         <div className="container">
-            <div className="input-box">
-                <input className="field" placeholder = "Email Address" type="text" id="email" />
-            </div>
-            <div className="input-box">
-                <input className="field" placeholder="Password" type="password" id="password" />
-            </div>
+            <InputBox
+                placeholder="Email"
+            />
+            <InputBox
+                placeholder="Password"
+            />
             <button className="btn" >SIGNIN</button>
         </div>
     </div>);
