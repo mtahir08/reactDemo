@@ -1,25 +1,24 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
-class App extends Component {
-  render() {
-    return (
+import About from './components/About';
+import Contact from './components/Contact';
+import Details from './components/Details';
+import Home from './components/Home';
+import Navigation from './components/Navigation';
+
+const App = () => {
+  return (
+    <Router>
       <div>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-          <li>
-            <Link to="/contact">Contact</Link>
-          </li>
-        </ul>
-
-        <hr />
+        <Navigation />
+        <Route exact path="/" component={Home} />
+        <Route path="/about" component={About} />
+        <Route path="/contact" component={Contact} />
+        <Route path="/detail/:id" component={Details} />
+        <Redirect to='/' />
       </div>
-    );
-  }
+    </Router>
+  );
 }
 export default App;
