@@ -12,4 +12,4 @@ React:
 Virtual Dom:
 Babel
 JSX (JavaScript XML)
-JSX Expressions <h1> { } </h1> 
+JSX Expressions `<h1> { } </h1> `
