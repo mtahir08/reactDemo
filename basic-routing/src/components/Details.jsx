@@ -1,22 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const data = [
-  {
-    id: 1,
-    name: 'Arsalan',
-    class: 'A'
-  },
-  {
-    id: 2,
-    name: 'Tahir',
-    class: 'A'
-  },
-  {
-    id: 3,
-    name: 'Waseem',
-    class: 'A'
-  }
-];
+import { data } from './../services/index'
 
 const Details = (props) => {
   const [user, setUser] = useState(null)
@@ -24,7 +8,7 @@ const Details = (props) => {
   const setUserDetails = () => {
     const { id } = props.match.params// ES6
     // const id = props.match.params.id //Normal
-
+    console.log("props.match.params", props.match.params);
     if (id) {
       // const newUser = data.find((item) => {
       //   console.log(item.id, id, item.id == id)

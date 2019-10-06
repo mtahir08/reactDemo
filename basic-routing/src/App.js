@@ -15,8 +15,8 @@ const App = () => {
         <Route exact path="/" component={Home} />
         <Route path="/about" component={About} />
         <Route path="/contact" component={Contact} />
-        <Route path="/detail/:id" component={Details} />
-        <Redirect to='/' />
+        <Route path="/detail/:id/:name?" component={Details} />
+        {/* <Redirect to='/' /> */}
       </div>
     </Router>
   );

@@ -11,8 +11,8 @@ export const data = [
   },
   {
     id: 3,
-    name: 'Waseem',
-    class: 'A'
+    name: 'Ahmed',
+    class: 'B'
   }
 ];
 
