@@ -32,7 +32,6 @@ const Home = (props) => {
           <td>Name</td>
           <td>Class</td>
           <td />
-          <td />
         </tr>
       </thead>
       <tbody>
