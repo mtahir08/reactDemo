@@ -1,22 +1,21 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 
-class Input extends Component {
-    constructor() {
-        super();
-        this.addTodo = this.addTodo.bind(this);
-    }
+const Input = (props) => {
+    const [todo, setTodo] = useState("")
 
-    addTodo() {
-        let value = document.getElementById("todo").value;
-        this.props.addThis(value);
-    }
-
-    render() {
-        return <div>
-                    <input type="text" id="todo" />
-                    <button onClick={this.addTodo}> Add </button>
-               </div>
-    }
+    return <div>
+        <input
+            type="text"
+            onChange={(event) => { setTodo(event.target.value) }}
+            value={todo}
+        />
+        <button onClick={() => {
+            if (todo.length) {
+                props.addThis(todo)
+                setTodo("")
+            }
+        }}> Add </button>
+    </div >
 }
 
 export default Input

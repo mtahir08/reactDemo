@@ -1,27 +1,24 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
+
 import List from './list';
 import Input from './input';
-class Main extends Component {
-    constructor(props) {
-        super(props);
-        this.arr = [];
-        this.addEventHandler = this.addEventHandler.bind(this); 
-        this.state={
-            value : null
-        }
-    }
-    addEventHandler(event){
-        this.setState({
-            value : event 
+
+const Main = () => {
+    const [todos, setTodos] = useState([])
+    const addEventHandler = (todo) => {
+        // console.log(todo);
+        setTodos(items => {
+            // const newItems = [...items]
+            // newItems.push(todo)
+            return [...items, todo]
         })
-        console.log("event",this.state.value)
+
+        console.log("event", todos)
     }
-    render() {
-        return <div>
-            <List runthis={this.state.value}/>
-            <Input addThis={this.addEventHandler}/>
-            </div>
-    }
+    return <div>
+        <Input addThis={addEventHandler} />
+        <List items={todos} />
+    </div>
 }
 
 export default Main
