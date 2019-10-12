@@ -6,14 +6,10 @@ import Input from './input';
 const Main = () => {
     const [todos, setTodos] = useState([])
     const addEventHandler = (todo) => {
-        // console.log(todo);
-        setTodos(items => {
-            // const newItems = [...items]
-            // newItems.push(todo)
-            return [...items, todo]
-        })
-
-        console.log("event", todos)
+        setTodos([...todos, todo])
+        // setTodos(items => {
+        //     return [...items, todo]
+        // })
     }
     return <div>
         <Input addThis={addEventHandler} />
