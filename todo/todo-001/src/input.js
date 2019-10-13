@@ -11,7 +11,7 @@ const Input = (props) => {
         />
         <button onClick={() => {
             if (todo.length) {
-                props.addThis(todo)
+                props.addTodo(todo)
                 setTodo("")
             }
         }}> Add </button>
