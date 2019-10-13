@@ -22,10 +22,8 @@ const List = (props) => {
                     // class:item.class
                 })
             })
-            setTodos(items)
-            console.log(props.items)
-            console.log(items)
         }
+        setTodos(items)
 
     }, [props.items])
 
