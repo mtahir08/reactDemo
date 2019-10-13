@@ -1,7 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Input = (props) => {
     const [todo, setTodo] = useState("")
+    useEffect(() => {
+        if (props.edit) {
+            setTodo(props.edit)
+        }
+    }, [props.edit])
 
     return <div>
         <input
@@ -11,10 +16,15 @@ const Input = (props) => {
         />
         <button onClick={() => {
             if (todo.length) {
-                props.addTodo(todo)
-                setTodo("")
+                if (props.edit) {
+                    props.updateTodo(todo)
+                    setTodo("")
+                } else {
+                    props.addTodo(todo)
+                    setTodo("")
+                }
             }
-        }}> Add </button>
+        }}> {props.edit ? "Update" : "Add"} </button>
     </div >
 }
 

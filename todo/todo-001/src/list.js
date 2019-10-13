@@ -45,7 +45,7 @@ const List = (props) => {
             <td>{item.name}</td>
             <td>{item.class}</td>
             <td>
-                <button onClick={() => { }}>Edit</button>
+                <button onClick={() => { props.editTodo(item.id) }}>Edit</button>
                 <button onClick={() => { props.deleteTodo(item.id) }}>Delete</button>
             </td>
         </tr>
