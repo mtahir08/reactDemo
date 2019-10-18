@@ -22,18 +22,35 @@ const Details = (props) => {
   }
 
 
-  // constructor
+  // constructor  // in only class basec
   // componentWillMount  // not use now
   // render
   // componentDidMount
   // componentWillUnmount
+  // componentWillReceiveProps
+  // componentDidUpdate
 
+
+  const onUnMount = () => {
+    console.log("componentWillUnmount");
+  }
 
   useEffect(() => {
     // this is componentDidMount
     console.log("componentDidMount");
     setUserDetails();
+
+    return () => {
+      onUnMount()
+    }
   }, [])
+
+  // OR
+  // useEffect(() => {
+  //   return () => {
+  //     console.log("componentWillUnmount");
+  //   }
+  // }, [])
 
 
   console.log("render")
