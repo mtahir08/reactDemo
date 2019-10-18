@@ -11,18 +11,30 @@ import React, { useState } from 'react';
 //     }
 
 //     const removeItem = () => {
-//         const newItems = [...items]
-//         newItems.pop()
-//         console.log(newItems)
-//         setItems(newItems)
+
+//         const newItem = [...items];
+//         newItem.pop();
+//         setItems(newItem);
+
+//         // setItems([...items].pop());
 //     }
 
+//     // const removeItem = () => {
+//     //     const newItems = [...items]
+//     //     newItems.pop()
+//     //     console.log(newItems)
+//     //     setItems(newItems)
+//     // }
 //     return (
 //         <div>
 //             <button onClick={addItem}>Add item</button>
 //             <button onClick={removeItem}>Remove item</button>
 //             <ul>
-//                 {items.map((item, index) => <li key={index}>{item}</li>)}
+//                 {items.map((item, index) => {
+//                     return <li key={index}>{item}</li>
+//                 })}
+// // Or you can this
+// //{ items.map((item, index) => <li key={index}>{item}</li>) }
 //             </ul>
 //         </div >
 //     );

@@ -1,22 +1,34 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
+import './index.css'
+import { styles } from './style'
+const Input = (props) => {
+    const [todo, setTodo] = useState("")
+    useEffect(() => {
+        if (props.edit) {
+            setTodo(props.edit)
+        }
+    }, [props.edit])
 
-class Input extends Component {
-    constructor() {
-        super();
-        this.addTodo = this.addTodo.bind(this);
-    }
-
-    addTodo() {
-        let value = document.getElementById("todo").value;
-        this.props.addThis(value);
-    }
-
-    render() {
-        return <div>
-                    <input type="text" id="todo" />
-                    <button onClick={this.addTodo}> Add </button>
-               </div>
-    }
+    return <div>
+        <input
+            type="text"
+            onChange={(event) => { setTodo(event.target.value) }}
+            value={todo}
+            // className="input"
+            style={styles.input}
+        />
+        <button onClick={() => {
+            if (todo.length) {
+                if (props.edit) {
+                    props.updateTodo(todo)
+                    setTodo("")
+                } else {
+                    props.addTodo(todo)
+                    setTodo("")
+                }
+            }
+        }}> {props.edit ? "Update" : "Add"} </button>
+    </div >
 }
 
 export default Input
