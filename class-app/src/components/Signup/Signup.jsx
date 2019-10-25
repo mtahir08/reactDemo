@@ -1,18 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
+
+import { CustomButton, CustomInput } from './../../common';
 import './../Signin/Signin.css'
+
 function Signup() {
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
     return (<div className="root">
         <div className="container">
-            <div className="input-box">
-                <input className="field" placeholder = "NAME" type="text" id="NAME" />
-            </div>
-            <div className="input-box">
-                <input className="field" placeholder = "Email Address" type="EMAIL" id="email" />
-            </div>
-            <div className="input-box">
-                <input className="field" placeholder="Password" type="password" id="password" />
-            </div>
-            <button className="btn" >SIGNUP</button>
+
+            <CustomInput
+                value={name}
+                type="text"
+                placeholder="Enter name"
+                onChange={(event) => setName(event.target.value)}
+            />
+            <CustomInput
+                value={email}
+                type="email"
+                placeholder="Enter email"
+                onChange={(event) => setEmail(event.target.value)}
+            />
+            <CustomInput
+                value={password}
+                type="password"
+                placeholder="Password"
+                onChange={(event) => setPassword(event.target.value)}
+            />
+            <CustomButton
+                name="SIGNUP"
+                clickHandler={() => { }}
+            />
         </div>
     </div>);
 }
