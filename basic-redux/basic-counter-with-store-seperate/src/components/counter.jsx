@@ -10,7 +10,7 @@ function mapDispatchToProps(dispatch) {
         increment: (num) => {
             return dispatch({ type: "INCREMENT", val: num })
         },
-        decrement: (num) => dispatch({ type: "DECREMENT" })
+        decrement: (num) => dispatch({ type: "DECREMENT", val: num })
     }
 }
 
