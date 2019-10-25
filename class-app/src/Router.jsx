@@ -1,8 +1,8 @@
 import React from 'react';
-import { BrowserRouter, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 
-import Signin from './components/Signin/Signin';
-import Signup from './components/Signup/Signup';
+import Signin from './Container/Signin';
+import Signup from './Container/Signup';
 import Dashboard from './components/Dashboard';
 import { Header } from './components/Header';
 
@@ -12,9 +12,8 @@ const Router = () => {
             <div>
                 <Header />
                 <Route exact path="/" component={Signin} />
-                <Route path="/signup" component={Signup} />
-                <Route path="/dashboard" component={Dashboard} />
-                {/* <Redirect to='/' /> */}
+                <Route exact path="/signup" component={Signup} />
+                <Route exact path="/dashboard" component={Dashboard} />
             </div>
         </BrowserRouter>
     );
