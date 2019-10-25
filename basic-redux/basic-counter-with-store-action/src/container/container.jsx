@@ -19,11 +19,11 @@ function mapDispatchToProps(dispatch) {
         increment: (value) => {
             return dispatch({ type: actionType.INCREMENT, val: value })
         },
-        decrement: () => dispatch({ type: actionType.DECREMENT })
+        decrement: (value) => dispatch({ type: actionType.DECREMENT, val: value })
         // increment: (value) => {
         //     return dispatch({ type: StoreAction.increment(), val: value })
         // },
-        // decrement: () => dispatch({ type: StoreAction.decrement() })
+        // decrement: (value) => dispatch({ type: StoreAction.decrement(), val: value })
     }
 }
 

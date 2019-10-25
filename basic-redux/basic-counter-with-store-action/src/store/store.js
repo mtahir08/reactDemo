@@ -6,8 +6,8 @@ import incrementCounter from './reducers/increment';
 
 
 export const rootReducer = combineReducers({
-    incrementCounter,
-    decrementCounter
+  incrementCounter,
+  decrementCounter
 })
 
 let store = createStore(rootReducer);
