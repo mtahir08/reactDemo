@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
 function mapStateToProps(state) {
@@ -12,14 +12,12 @@ function mapDispatchToProps(dispatch) {
     }
 }
 
-class Counter extends Component {
-    render() {
-        return (
-            <div> {this.props.counter} <br />
-                <button onClick={this.props.increment}>Increment Me</button>
-                <button onClick={this.props.decrement}>Decrement Me</button>
-            </div>
-        );
-    }
+const Counter = () => {
+    return (
+        <div> {this.props.counter} <br />
+            <button onClick={this.props.increment}>Increment Me</button>
+            <button onClick={this.props.decrement}>Decrement Me</button>
+        </div>
+    );
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Counter);

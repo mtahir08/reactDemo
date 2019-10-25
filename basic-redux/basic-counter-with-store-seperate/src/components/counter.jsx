@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
 function mapStateToProps(state) {
@@ -7,34 +7,21 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        increment: () => {
-            var num = +document.getElementById("num").value;
+        increment: (num) => {
             return dispatch({ type: "INCREMENT", val: num })
-
         },
-        decrement: () => dispatch({ type: "DECREMENT" })
+        decrement: (num) => dispatch({ type: "DECREMENT" })
     }
 }
 
-class Counter extends Component {
-    constructor() {
-        super();
-        this.state = {
-            changedValue: 0
-        }
-    }
-    valueChange(event) {
-        this.setState({ changedValue: event.target.value })
-        console.log(event.target.value)
-    }
-    render() {
-        return (
-            <div> {this.props.counter} <br />
-                <input type="number" id="num" onChange={this.valueChange.bind(this)} /><br />
-                <button onClick={this.props.increment.bind(this)}>Increment Me</button>
-                <button onClick={this.props.decrement}>Decrement Me</button>
-            </div>
-        );
-    }
+const Counter = (props) => {
+    const [changedValue, setChangedValue] = useState(0)
+    return (
+        <div> {props.counter} <br />
+            <input type="number" id="num" onChange={(event) => { setChangedValue(event.target.value) }} /><br />
+            <button onClick={() => props.increment(changedValue)}>Increment Me</button>
+            <button onClick={() => props.decrement(changedValue)}>Decrement Me</button>
+        </div>
+    );
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Counter);
