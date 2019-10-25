@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
 function mapStateToProps(state) {
@@ -12,21 +12,15 @@ function mapDispatchToProps(dispatch) {
     }
 }
 
-class Counter extends Component {
-    constructor() {
-        super();
-        this.state = {
-            num: 0
-        }
-    }
-    render() {
-        return (
-            <div> {this.props.counter} <br />
-                <input type="number" value={this.state.num} onChange={() => { this.setState({ num: Number(ev.target.value) }) }} />
-                <button onClick={() => this.props.increment(this.state.num)}>Increment Me</button>
-                <button onClick={() => this.props.decrement(this.state.num)}>Decrement Me</button>
-            </div>
-        );
-    }
+const Counter = (props) => {
+    let [num, setNum] = useState(0);
+    return (
+        <div> {props.counter} <br />
+            <input type="number" value={num} onChange={(ev) => { setNum(Number(ev.target.value)) }} />
+            <button onClick={() => props.increment(num)}>Increment Me</button>
+            <button onClick={() => props.decrement(num)}>Decrement Me</button>
+        </div>
+    );
 }
+
 export default connect(mapStateToProps, mapDispatchToProps)(Counter);
