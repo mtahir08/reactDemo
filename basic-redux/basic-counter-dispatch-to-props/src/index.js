@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
-import { Provider } from 'react-redux';
 
 import Counter from './components/counter';
 
@@ -24,20 +23,9 @@ store.subscribe(() => {
   console.log(store.getState())
 })
 
-// store.dispatch({ type: 'INCREMENT' })
-// store.dispatch({ type: 'INCREMENT' })
-
-// store.dispatch({ type: 'DECREMENT' })
-// store.dispatch({ type: 'INCREMENT' })
-
-
 ReactDOM.render(
-  <Provider store={store}>
-    <div>
-      <div>
-        <button onClick={() => store.dispatch({ type: 'INCREMENT' })}>Increment</button><br />
-        <button onClick={() => store.dispatch({ type: 'DECREMENT' })}>Decrement</button><br />
-      </div>
-    </div>
-  </Provider>
+  <div>
+    <button onClick={() => store.dispatch({ type: 'INCREMENT' })}>Increment</button><br />
+    <button onClick={() => store.dispatch({ type: 'DECREMENT' })}>Decrement</button><br />
+  </div>
   , document.getElementById('root'));
