@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
-import StoreAction from '../store/actions/action';
+// import StoreAction from '../store/actions/action';
 import actionType from '../store/actions/actionTypes';
 
 import Counter from '../components/counter';
+import Data from '../components/data';
 
 function mapStateToProps(state) {
     return {
@@ -15,32 +16,25 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        // increment: (value) => {
-        //     return dispatch({ type: actionType.INCREMENT, val: value })
-        // },
-        // decrement: () => dispatch({ type: actionType.DECREMENT })
         increment: (value) => {
-            return dispatch({ type: StoreAction.increment(), val: value })
+            return dispatch({ type: actionType.INCREMENT, val: value })
         },
-        decrement: () => dispatch({ type: StoreAction.decrement() })
+        decrement: () => dispatch({ type: actionType.DECREMENT })
+        // increment: (value) => {
+        //     return dispatch({ type: StoreAction.increment(), val: value })
+        // },
+        // decrement: () => dispatch({ type: StoreAction.decrement() })
     }
 }
 
-class Container extends Component {
-    constructor() {
-        super();
-    }
+const Container = (props) => {
 
-    updateCounter(value) {
-        this.props.increment(value);
-    }
-    render() {
-        return (
-            <div>
-                <Counter counter={this.props.incMe} update={this.updateCounter.bind(this)} />
-
-            </div>
-        );
-    }
+    return (
+        <div>
+            <Counter increment={props.increment} decrement={props.decrement} />
+            <Data dec={props.dec} incMe={props.incMe} />
+        </div>
+    );
 }
+
 export default connect(mapStateToProps, mapDispatchToProps)(Container);
