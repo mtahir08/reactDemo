@@ -1,31 +1,23 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 
-class Counter extends Component {
-    constructor() {
-        super();
-        this.state = {
-            changedValue: 0
+const Counter = (props) => {
+    let [num, setNum] = useState(0)
+
+    const update = (flag) => {
+        if (flag === 'increment') {
+            props.increment(Number(num));
+        } else if (flag === 'decrement') {
+            props.decrement(Number(num));
+
         }
-
-    }
-    valueChange(event) {
-        this.setState({ changedValue: event.target.value })
     }
 
-    updateClickedValue() {
-        this.props.update(Number(this.state.changedValue));
-    }
-    decrementClickedValue() {
-        this.props.update(-Number(this.state.changedValue));
-    }
-    render() {
-        return (
-            <div> {this.props.counter} <br />
-                <input type="number" id="num" onChange={this.valueChange.bind(this)} /><br />
-                <button onClick={this.updateClickedValue.bind(this)}>Increment Me</button>
-                <button onClick={this.decrementClickedValue.bind(this)}>Decrement Me</button>
-            </div>
-        );
-    }
+    return (
+        <div>
+            <input type="number" value={num} onChange={(event) => { setNum(event.target.value) }} /><br />
+            <button onClick={() => update('increment')}>Increment Me</button>
+            <button onClick={() => update('decrement')}>Decrement Me</button>
+        </div>
+    );
 }
 export default Counter
