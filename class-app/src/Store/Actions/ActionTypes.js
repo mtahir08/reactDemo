@@ -7,6 +7,8 @@ const ActionTypes = {
     SIGNUP_SUCCESS: "SIGNUP_SUCCESS",
     SIGNUP_FAILED: "SIGNUP_FAILED",
 
+    LOGOUT_SUCCESS: "LOGOUT_SUCCESS",
+
 
 }
 

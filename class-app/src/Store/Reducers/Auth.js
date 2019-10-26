@@ -2,7 +2,8 @@ import { ActionTypes } from '../Actions';
 
 const INITIAL_STATE = {
     isLoading: false,
-    user: {}
+    token: '',
+    user: {},
 }
 
 function AuthReducer(state = INITIAL_STATE, action) {
@@ -52,8 +53,17 @@ function AuthReducer(state = INITIAL_STATE, action) {
                 isLoading: false,
             }
         }
+
+        case ActionTypes.LOGOUT_SUCCESS: {
+            return INITIAL_STATE
+        }
+
+
+
         default: return state;
     }
+
+
 }
 
 export { AuthReducer };

@@ -74,6 +74,15 @@ const AuthActions = {
                     dispatch({ type: ActionTypes.LOGIN_FAILED })
                 })
         }
+    },
+    signout: (callback) => {
+        return (dispatch) => {
+            localStorage.clear()
+            dispatch({ type: ActionTypes.LOGOUT_SUCCESS })
+            if (callback)
+                callback()
+
+        }
     }
 }
 
