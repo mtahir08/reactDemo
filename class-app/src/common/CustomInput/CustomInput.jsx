@@ -2,7 +2,6 @@ import React from 'react';
 import './CustomInput.css'
 
 function CustomInput(props) {
-    console.log(props);
     return (
         <div className="input-box">
             <input
