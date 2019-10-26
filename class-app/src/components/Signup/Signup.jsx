@@ -37,6 +37,7 @@ const Signup = (props) => {
             />
             <CustomButton
                 name="SIGNUP"
+                disabled={props.isLoading}
                 clickHandler={() => { props.signup({ name, email, password }, gotoSignin) }}
             />
         </div>

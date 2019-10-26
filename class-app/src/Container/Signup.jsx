@@ -6,6 +6,7 @@ import { AuthActions } from './../Store/Actions'
 
 const mapStateToProps = (state) => {
     return {
+        isLoading: state.AuthReducer.isLoading
     }
 }
 
