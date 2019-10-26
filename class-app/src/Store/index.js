@@ -1,10 +1,12 @@
-import { createStore } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
+import thunk from "redux-thunk";
 
 import {
     RootReducer
 } from './Reducers';
 
-let Store = createStore(RootReducer);
+const middleware = applyMiddleware(thunk);
+let Store = createStore(RootReducer, middleware);
 
 // Store.subscribe(() => {
 //     console.log(Store.getState())
