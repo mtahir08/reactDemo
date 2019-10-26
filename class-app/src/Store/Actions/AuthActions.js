@@ -66,6 +66,8 @@ const AuthActions = {
                 })
                 .then((data) => {
                     dispatch({ type: ActionTypes.LOGIN_SUCCESS, payload: data })
+                    localStorage.setItem("id", data.user.id)
+                    localStorage.setItem("token", data.token)
                     if (callback)
                         callback()
                 })
