@@ -11,7 +11,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        signup: (obj) => dispatch(AuthActions.signup(obj))
+        signup: (obj, callback) => dispatch(AuthActions.signup(obj, callback))
     }
 }
 

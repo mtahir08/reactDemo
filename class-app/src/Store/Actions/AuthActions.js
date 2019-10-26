@@ -2,7 +2,7 @@
 import { Config } from './../../config'
 import { ActionTypes } from './ActionTypes'
 const AuthActions = {
-    signup: async (obj) => {
+    signup: (obj, callback) => {
         return (dispatch) => {
             dispatch({ type: ActionTypes.SIGNUP })
             /**
@@ -28,6 +28,8 @@ const AuthActions = {
                 })
                 .then((data) => {
                     dispatch({ type: ActionTypes.SIGNUP_SUCCESS, payload: data })
+                    if (callback)
+                        callback()
                 })
                 .catch((error) => {
                     console.log({ error })

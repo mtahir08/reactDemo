@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import { CustomButton, CustomInput } from './../../common';
 import './../Signin/Signin.css'
 
-function Signup() {
+const Signup = (props) => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const history = useHistory()
+
+    const gotoSignin = () => {
+        history.push('/')
+    }
 
     return (<div className="root">
         <div className="container">
@@ -31,7 +37,7 @@ function Signup() {
             />
             <CustomButton
                 name="SIGNUP"
-                clickHandler={() => { }}
+                clickHandler={() => { props.signup({ name, email, password }, gotoSignin) }}
             />
         </div>
     </div>);
