@@ -37,7 +37,7 @@ const AuthActions = {
                 })
         }
     },
-    signin: (obj) => {
+    signin: (obj, callback) => {
         return (dispatch) => {
             dispatch({ type: ActionTypes.LOGIN })
             /**
@@ -63,6 +63,8 @@ const AuthActions = {
                 })
                 .then((data) => {
                     dispatch({ type: ActionTypes.LOGIN_SUCCESS, payload: data })
+                    if (callback)
+                        callback()
                 })
                 .catch((error) => {
                     console.log({ error })

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import { CustomInput, CustomButton } from './../../common';
 
@@ -6,7 +7,11 @@ import './Signin.css'
 function SignIn(props) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const history = useHistory()
 
+    const gotoDashboard = () => {
+        history.push('/dashboard')
+    }
 
     return (<div className="root">
         <div className="container">
@@ -24,7 +29,7 @@ function SignIn(props) {
             />
             <CustomButton
                 name="SINGIN"
-                clickHandler={() => { props.signin({ email, password }) }}
+                clickHandler={() => { props.signin({ email, password }, gotoDashboard) }}
             />
         </div>
     </div>);
