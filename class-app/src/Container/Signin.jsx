@@ -5,7 +5,9 @@ import { SignIn } from './../components/Signin/Signin'
 import { AuthActions } from './../Store/Actions'
 
 const mapStateToProps = (state) => {
-    return {}
+    return {
+        isLoading: state.AuthReducer.isLoading
+    }
 }
 
 const mapDispatchToProps = (dispatch) => {

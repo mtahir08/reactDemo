@@ -29,6 +29,7 @@ function SignIn(props) {
             />
             <CustomButton
                 name="SINGIN"
+                disabled={props.isLoading}
                 clickHandler={() => { props.signin({ email, password }, gotoDashboard) }}
             />
         </div>
