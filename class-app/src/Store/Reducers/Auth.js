@@ -20,7 +20,8 @@ function AuthReducer(state = INITIAL_STATE, action) {
             return {
                 ...state,
                 isLoading: false,
-                user: action.payload,
+                user: action.payload.user,
+                token: action.payload.token,
             }
         }
         case ActionTypes.LOGIN_FAILED: {

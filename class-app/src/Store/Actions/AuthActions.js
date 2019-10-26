@@ -58,8 +58,11 @@ const AuthActions = {
                 },
                 body: JSON.stringify(obj)
             })
-                .then((response) => {
-                    return response.json()
+                .then(async (response) => {
+                    const res = await response.json()
+                    if (response.status === 200)
+                        return res
+                    throw res
                 })
                 .then((data) => {
                     dispatch({ type: ActionTypes.LOGIN_SUCCESS, payload: data })
