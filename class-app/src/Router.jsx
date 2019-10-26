@@ -4,7 +4,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Signin from './Container/Signin';
 import Signup from './Container/Signup';
 import Dashboard from './components/Dashboard';
-import { Header } from './components/Header';
+import { Header } from './Container/Header';
 
 const Router = () => {
     return (
