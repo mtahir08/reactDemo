@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        signup: (obj) => { dispatch(AuthActions.signup(obj)) }
+        signin: (obj) => dispatch(AuthActions.signin(obj))
     }
 }
 

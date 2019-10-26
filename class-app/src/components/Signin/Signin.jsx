@@ -24,7 +24,7 @@ function SignIn(props) {
             />
             <CustomButton
                 name="SINGIN"
-                clickHandler={() => { }}
+                clickHandler={() => { props.signin({ email, password }) }}
             />
         </div>
     </div>);

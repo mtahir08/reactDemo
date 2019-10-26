@@ -3,7 +3,6 @@ import { ActionTypes } from '../Actions';
 const INITIAL_STATE = {
     isLoading: false,
     user: {}
-
 }
 
 function AuthReducer(state = INITIAL_STATE, action) {
@@ -28,7 +27,6 @@ function AuthReducer(state = INITIAL_STATE, action) {
             return {
                 ...state,
                 isLoading: false,
-                user: {},
             }
         }
 
