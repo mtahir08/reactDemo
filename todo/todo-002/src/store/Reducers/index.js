@@ -1,9 +1,10 @@
+import TodoActions from "../Actions";
+
 // import ActionTypes from '../actions/ActionsTypes';
 
 const INITIAL_STATE = {
     todos: [],
-    token: "",
-    user: {}
+    editingItem: null // {}
 }
 
 // action = {type:"", payload:{}||number||""}
@@ -26,7 +27,8 @@ function TodoReducer(state = INITIAL_STATE, action) {
             todos.splice(index, 1, action.payload)
             return {
                 ...state,
-                todos
+                todos,
+                editingItem: null
             }
         }
 
@@ -38,6 +40,12 @@ function TodoReducer(state = INITIAL_STATE, action) {
             return {
                 ...state,
                 todos
+            }
+        }
+        case 'EDIT': {
+            return {
+                ...state,
+                editingItem: action.payload,
             }
         }
 

@@ -6,24 +6,29 @@ import TodoActions from './store/Actions/index';
 
 function mapStateToProps(state) {
     return {
+        editingItem: state.editingItem
     }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
         // Add: (obj) => dispatch(TodoActions.Add(obj))
-        Add: (obj) => dispatch({ type: 'ADD', payload: obj })
+        Add: (obj) => dispatch({ type: 'ADD', payload: obj }),
+        // update: (obj) => dispatch(TodoActions.update(obj))
+        Update: (obj) => dispatch({ type: 'UPDATE', payload: obj })
+
     }
 }
 
 const Input = (props) => {
     // console.log(props);
     const [todo, setTodo] = useState("")
-    // useEffect(() => {
-    //     if (props.edit) {
-    //         setTodo(props.edit)
-    //     }
-    // }, [props.edit])
+    useEffect(() => {
+        console.log(props.editingItem);
+        if (props.editingItem) {
+            setTodo(props.editingItem.name)
+        }
+    }, [props.editingItem])
 
     return <div>
         <input
@@ -35,12 +40,19 @@ const Input = (props) => {
         />
         <button onClick={() => {
             if (todo.length) {
-                props.Add({
-                    id: parseInt(Math.random() * 10000),
-                    name: todo
-                })
+                if (props.editingItem) {
+                    props.Update({
+                        ...props.editingItem,
+                        name: todo
+                    })
+                } else {
+                    props.Add({
+                        id: parseInt(Math.random() * 10000),
+                        name: todo
+                    })
+                }
             }
-        }}> {props.edit ? "Update" : "Add"} </button>
+        }}> {props.editingItem ? "Update" : "Add"} </button>
     </div >
 }
 

@@ -18,38 +18,19 @@ function mapDispatchToProps(dispatch) {
         delete: (id) => {
             return dispatch({ type: 'DELETE', payload: id })
         },
-        update: (obj) => dispatch(TodoActions.update(obj))
+        // edit: (obj) => dispatch(TodoActions.Edit(obj))
+        edit: (obj) => dispatch({ type: 'EDIT', payload: obj })
     }
 }
 
 
 const List = (props) => {
-    // const [todos, setTodos] = useState([])
-
-    // componentWillReceiveProps
-    //static getDerivedStateFromProps
-    // useEffect(() => {
-    //     let items = [...props.todos]
-    //     if (items.length) {
-    //         items = items.map((item, i) => {
-    //             return ({
-    //                 ...item,
-    //                 class: parseInt(Math.random() * 10)
-
-    //             })
-    //         })
-    //     }
-    //     setTodos(items)
-
-    // }, [props.todos])
-
     let rows = props.todos.map((item, i) => (
         <tr key={i}>
             <td>{item.id}</td>
             <td>{item.name}</td>
-            {/* <td>{item.class}</td> */}
             <td>
-                <button onClick={() => { props.editTodo(item.id) }}>Edit</button>
+                <button onClick={() => { props.edit(item) }}>Edit</button>
                 <button onClick={() => { props.delete(item.id) }}>Delete</button>
             </td>
         </tr>

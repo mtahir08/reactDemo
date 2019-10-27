@@ -10,6 +10,9 @@ const TodoActions = {
     Delete: (id) => {
         return { type: 'DELETE', payload: id }
     },
+    Edit: (obj) => {
+        return { type: 'EDIT', payload: obj }
+    },
 }
 
 export default TodoActions 
