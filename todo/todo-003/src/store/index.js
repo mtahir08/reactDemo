@@ -1,14 +1,9 @@
-import { createStore } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
+import thunk from "redux-thunk";
 
 import { TodoReducer } from './Reducers';
 
-let store = createStore(TodoReducer);
-
-
-// store.subscribe(() => {
-//     console.log("subscribe start")
-//     console.log(store.getState())
-//     console.log("subscribe end")
-// })
+const middleware = applyMiddleware(thunk);
+let store = createStore(TodoReducer, middleware);
 
 export default store;
