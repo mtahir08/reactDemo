@@ -12,13 +12,19 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
+        get: () => dispatch(TodoActions.Get()),
         delete: (id) => dispatch(TodoActions.Delete(id)),
-        edit: (obj) => dispatch(TodoActions.Edit(obj))
+        edit: (obj) => dispatch(TodoActions.Edit(obj)),
     }
 }
 
 
 const List = (props) => {
+
+    useEffect(() => {
+        props.get();
+    }, [])
+
     let rows = props.todos.map((item, i) => (
         <tr key={i}>
             <td>{(i + 1)}</td>

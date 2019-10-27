@@ -30,6 +30,28 @@ function TodoReducer(state = INITIAL_STATE, action) {
             }
         }
 
+        // GET
+
+        case ActionTypes.GET_TODO: {
+            return {
+                ...state,
+                isLoading: true
+            }
+        }
+        case ActionTypes.GET_TODO_SUCCESS: {
+            return {
+                ...state,
+                isLoading: false,
+                todos: action.payload
+            }
+        }
+        case ActionTypes.GET_TODO_FAILED: {
+            return {
+                ...state,
+                isLoading: false,
+            }
+        }
+
 
         case ActionTypes.UPDATE: {
             const todos = [...state.todos]
