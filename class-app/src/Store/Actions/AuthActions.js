@@ -3,6 +3,7 @@ import { Config } from './../../config'
 import { ActionTypes } from './ActionTypes'
 const AuthActions = {
     signup: (obj, callback) => {
+        // return async (dispatch) => {
         return (dispatch) => {
             dispatch({ type: ActionTypes.SIGNUP })
             /**
@@ -16,6 +17,27 @@ const AuthActions = {
              * })
              */
             const url = `${Config.endpoints.auth}/signup`
+            // try {
+            //     const response = await fetch(url, {
+            //         method: 'POST',
+            //         headers: {
+            //             'Content-Type': 'application/json',
+            //         },
+            //         body: JSON.stringify(obj)
+            //     })
+            //     if (response.status == 200) {
+            //         const data = await response.json()
+            //         dispatch({ type: ActionTypes.SIGNUP_SUCCESS })
+            //         if (callback)
+            //             callback()
+            //     }
+            //     throw response
+            // } catch (error) {
+            //     console.log({ error })
+            //     dispatch({ type: ActionTypes.SIGNUP_FAILED })
+            // }
+
+
             fetch(url, {
                 method: 'POST',
                 headers: {
@@ -27,7 +49,7 @@ const AuthActions = {
                     return response.json()
                 })
                 .then((data) => {
-                    dispatch({ type: ActionTypes.SIGNUP_SUCCESS, payload: data })
+                    dispatch({ type: ActionTypes.SIGNUP_SUCCESS })
                     if (callback)
                         callback()
                 })
