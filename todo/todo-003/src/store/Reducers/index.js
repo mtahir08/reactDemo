@@ -52,6 +52,31 @@ function TodoReducer(state = INITIAL_STATE, action) {
             }
         }
 
+        // DELETE
+        case ActionTypes.DELETE_TODO: {
+            return {
+                ...state,
+                isLoading: true
+            }
+        }
+        case ActionTypes.DELETE_TODO_SUCCESS: {
+            const todos = [...state.todos]
+            const index = todos.findIndex((todo) => todo._id === action.payload)
+            todos.splice(index, 1)
+            return {
+                ...state,
+                isLoading: false,
+                todos
+            }
+        }
+
+        case ActionTypes.DELETE_TODO_FAILED: {
+            return {
+                ...state,
+                isLoading: false,
+            }
+        }
+
 
         case ActionTypes.UPDATE: {
             const todos = [...state.todos]
@@ -61,16 +86,6 @@ function TodoReducer(state = INITIAL_STATE, action) {
                 ...state,
                 todos,
                 editingItem: null
-            }
-        }
-
-        case ActionTypes.DELETE: {
-            const todos = [...state.todos]
-            const index = todos.findIndex((todo) => todo.id === action.payload)
-            todos.splice(index, 1)
-            return {
-                ...state,
-                todos
             }
         }
 

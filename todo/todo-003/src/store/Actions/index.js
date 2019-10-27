@@ -63,7 +63,27 @@ const TodoActions = {
     },
     Delete: (id) => {
         return (dispatch) => {
-            dispatch({ type: 'DELETE', payload: id })
+            dispatch({ type: ActionTypes.DELETE_TODO })
+            // const url = `https://uit-class.herokuapp.com/api/todo`
+            const url = `http://localhost:3001/api/todo/${id}`
+            fetch(url, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            })
+                .then((response) => {
+                    if (response.status === 200)
+                        return response.json()
+                    throw response
+                })
+                .then((data) => {
+                    dispatch({ type: ActionTypes.DELETE_TODO_SUCCESS, payload: id })
+                })
+                .catch((error) => {
+                    console.log({ error })
+                    dispatch({ type: ActionTypes.DELETE_TODO_FAILED })
+                })
         }
     },
     Edit: (obj) => {
