@@ -19,7 +19,7 @@ const TodoActions = {
                     throw res
                 })
                 .then((data) => {
-                    dispatch({ type: ActionTypes.CREATE_TODO_SUCCESS, payload: data })
+                    dispatch({ type: ActionTypes.CREATE_TODO_SUCCESS, payload: data.todo })
                 })
                 .catch((error) => {
                     console.log({ error })
