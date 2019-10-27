@@ -77,15 +77,29 @@ function TodoReducer(state = INITIAL_STATE, action) {
             }
         }
 
-
-        case ActionTypes.UPDATE: {
+        // UDDATE
+        case ActionTypes.UPDATE_TODO: {
+            return {
+                ...state,
+                isLoading: true
+            }
+        }
+        case ActionTypes.UPDATE_TODO_SUCCESS: {
             const todos = [...state.todos]
-            const index = todos.findIndex((todo) => todo.id === action.payload.id)
+            const index = todos.findIndex((todo) => todo._id === action.payload._id)
             todos.splice(index, 1, action.payload)
             return {
                 ...state,
                 todos,
-                editingItem: null
+                editingItem: null,
+                isLoading: false,
+            }
+        }
+
+        case ActionTypes.UPDATE_TODO_FAILED: {
+            return {
+                ...state,
+                isLoading: false,
             }
         }
 

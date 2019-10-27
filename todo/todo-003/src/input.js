@@ -13,7 +13,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         Add: (obj) => dispatch(TodoActions.Add(obj)),
-        update: (obj) => dispatch(TodoActions.update(obj))
+        Update: (obj) => dispatch(TodoActions.Update(obj))
     }
 }
 
@@ -23,7 +23,7 @@ const Input = (props) => {
     useEffect(() => {
         console.log(props.editingItem);
         if (props.editingItem) {
-            setTodo(props.editingItem.name)
+            setTodo(props.editingItem.text)
         }
     }, [props.editingItem])
 
