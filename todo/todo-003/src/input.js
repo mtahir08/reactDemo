@@ -40,13 +40,10 @@ const Input = (props) => {
                 if (props.editingItem) {
                     props.Update({
                         ...props.editingItem,
-                        name: todo
+                        text: todo
                     })
                 } else {
-                    props.Add({
-                        id: parseInt(Math.random() * 10000),
-                        name: todo
-                    })
+                    props.Add({ text: todo })
                 }
             }
         }}> {props.editingItem ? "Update" : "Add"} </button>

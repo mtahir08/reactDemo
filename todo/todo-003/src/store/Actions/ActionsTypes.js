@@ -1,8 +1,9 @@
 const ActionTypes = {
-    ADD: "ADD",
-    UPDATE: "UPDATE",
-    DELETE: "DELETE",
-    GET: "GET"
+
+    CREATE_TODO: "CREATE_TODO",
+    CREATE_TODO_SUCCESS: "CREATE_TODO_SUCCESS",
+    CREATE_TODO_FAILED: "CREATE_TODO_FAILED",
+
 }
 
-export default ActionTypes
+export { ActionTypes }

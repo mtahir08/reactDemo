@@ -1,27 +1,37 @@
-import TodoActions from "../Actions";
-
-// import ActionTypes from '../actions/ActionsTypes';
+import { ActionTypes } from '../Actions/ActionsTypes';
 
 const INITIAL_STATE = {
     todos: [],
-    editingItem: null // {}
+    isLoading: false
 }
 
-// action = {type:"", payload:{}||number||""}
 function TodoReducer(state = INITIAL_STATE, action) {
     console.log(action);
     switch (action.type) {
 
-        // case ActionTypes.ADD: {
-        case 'ADD': {
+        // CREATE || ADD
+        case ActionTypes.CREATE_TODO: {
             return {
                 ...state,
+                isLoading: true
+            }
+        }
+        case ActionTypes.CREATE_TODO_SUCCESS: {
+            return {
+                ...state,
+                isLoading: false,
                 todos: [...state.todos, action.payload]
             }
         }
+        case ActionTypes.CREATE_TODO_FAILED: {
+            return {
+                ...state,
+                isLoading: false,
+            }
+        }
 
-        // case ActionTypes.UPDATE: {
-        case 'UPDATE': {
+
+        case ActionTypes.UPDATE: {
             const todos = [...state.todos]
             const index = todos.findIndex((todo) => todo.id === action.payload.id)
             todos.splice(index, 1, action.payload)
@@ -32,8 +42,7 @@ function TodoReducer(state = INITIAL_STATE, action) {
             }
         }
 
-        // case ActionTypes.DELETE: {
-        case 'DELETE': {
+        case ActionTypes.DELETE: {
             const todos = [...state.todos]
             const index = todos.findIndex((todo) => todo.id === action.payload)
             todos.splice(index, 1)
@@ -42,6 +51,7 @@ function TodoReducer(state = INITIAL_STATE, action) {
                 todos
             }
         }
+
         case 'EDIT': {
             return {
                 ...state,
