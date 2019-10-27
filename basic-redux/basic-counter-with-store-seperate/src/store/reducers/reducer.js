@@ -5,7 +5,7 @@ function counter(state = 0, action) {
       return state += action.val
     }
     case 'DECREMENT': {
-      return state -= 1
+      return state -= action.val
     }
     default: return state;
   }

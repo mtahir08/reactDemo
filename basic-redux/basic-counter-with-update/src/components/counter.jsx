@@ -1,14 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
-function mapStateTo(state){
-    return {counter: state}
+function mapStateTo(state) {
+    return { counter: state }
 }
-class Counter extends Component {
-    render() {
-        return (
-            <div> { this.props.counter } </div>
-        );
-    }
+
+const Counter = (props) => {
+    return (
+        <div>
+            <p>{props.counter}</p>
+        </div>
+    );
 }
+
 export default connect(mapStateTo)(Counter);
