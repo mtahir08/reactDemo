@@ -12,11 +12,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        // Add: (obj) => dispatch(TodoActions.Add(obj))
-        Add: (obj) => dispatch({ type: 'ADD', payload: obj }),
-        // update: (obj) => dispatch(TodoActions.update(obj))
-        Update: (obj) => dispatch({ type: 'UPDATE', payload: obj })
-
+        Add: (obj) => dispatch(TodoActions.Add(obj)),
+        update: (obj) => dispatch(TodoActions.update(obj))
     }
 }
 
