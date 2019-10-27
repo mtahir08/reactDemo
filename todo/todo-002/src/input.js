@@ -37,7 +37,7 @@ const Input = (props) => {
             if (todo.length) {
                 props.Add({
                     id: parseInt(Math.random() * 10000),
-                    todo
+                    name: todo
                 })
             }
         }}> {props.edit ? "Update" : "Add"} </button>

@@ -33,7 +33,7 @@ function TodoReducer(state = INITIAL_STATE, action) {
         // case ActionTypes.DELETE: {
         case 'DELETE': {
             const todos = [...state.todos]
-            const index = todos.findIndex((todo) => todo.id === action.payload.id)
+            const index = todos.findIndex((todo) => todo.id === action.payload)
             todos.splice(index, 1)
             return {
                 ...state,

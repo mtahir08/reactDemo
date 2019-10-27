@@ -5,7 +5,6 @@ import TodoActions from './store/Actions/index';
 
 
 function mapStateToProps(state) {
-    // console.log(state)
     return {
         todos: state.todos
     }
@@ -13,8 +12,11 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
+        // delete: (id) => {
+        //     return dispatch(TodoActions.Delete(id))
+        // },
         delete: (id) => {
-            return dispatch(TodoActions.Delete(id))
+            return dispatch({ type: 'DELETE', payload: id })
         },
         update: (obj) => dispatch(TodoActions.update(obj))
     }
@@ -22,34 +24,33 @@ function mapDispatchToProps(dispatch) {
 
 
 const List = (props) => {
-    console.log(props);
-    const [todos, setTodos] = useState([])
+    // const [todos, setTodos] = useState([])
 
     // componentWillReceiveProps
     //static getDerivedStateFromProps
-    useEffect(() => {
-        let items = [...props.items]
-        if (items.length) {
-            items = items.map((item, i) => {
-                return ({
-                    ...item,
-                    class: parseInt(Math.random() * 10)
+    // useEffect(() => {
+    //     let items = [...props.todos]
+    //     if (items.length) {
+    //         items = items.map((item, i) => {
+    //             return ({
+    //                 ...item,
+    //                 class: parseInt(Math.random() * 10)
 
-                })
-            })
-        }
-        setTodos(items)
+    //             })
+    //         })
+    //     }
+    //     setTodos(items)
 
-    }, [props.items])
+    // }, [props.todos])
 
-    let rows = todos.map((item, i) => (
+    let rows = props.todos.map((item, i) => (
         <tr key={i}>
             <td>{item.id}</td>
             <td>{item.name}</td>
-            <td>{item.class}</td>
+            {/* <td>{item.class}</td> */}
             <td>
                 <button onClick={() => { props.editTodo(item.id) }}>Edit</button>
-                <button onClick={() => { props.deleteTodo(item.id) }}>Delete</button>
+                <button onClick={() => { props.delete(item.id) }}>Delete</button>
             </td>
         </tr>
     ));
@@ -59,7 +60,7 @@ const List = (props) => {
             <tr>
                 <th>S.no</th>
                 <th>Name</th>
-                <th>Class</th>
+                {/* <th>Class</th> */}
                 <th></th>
             </tr>
         </thead>
