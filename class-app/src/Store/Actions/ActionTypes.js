@@ -1,0 +1,15 @@
+const ActionTypes = {
+    LOGIN: "LOGIN",
+    LOGIN_SUCCESS: "LOGIN_SUCCESS",
+    LOGIN_FAILED: "LOGIN_FAILED",
+
+    SIGNUP: "SIGNUP",
+    SIGNUP_SUCCESS: "SIGNUP_SUCCESS",
+    SIGNUP_FAILED: "SIGNUP_FAILED",
+
+    LOGOUT_SUCCESS: "LOGOUT_SUCCESS",
+
+
+}
+
+export { ActionTypes }

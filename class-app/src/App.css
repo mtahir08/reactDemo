@@ -1,0 +1,28 @@
+.App {
+  /* text-align: center; */
+}
+
+.App-header {
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  justify-content: flex-end;
+  /* color: white; */
+  height: 60px;
+  background-color: #f9fbfb;
+  padding-right: 20px;
+}
+
+.header-btn{
+  display: flex;
+  align-items: center;
+  color: #706f6c;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: inherit;
+  text-decoration: none;
+}
+.header-btn:hover{
+  background-color: rgba(51,51,51,0.04);
+  cursor: pointer;
+}
