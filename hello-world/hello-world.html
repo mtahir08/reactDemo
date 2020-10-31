@@ -14,24 +14,13 @@
 <body>
     <div id="root"></div>
     <script type="text/babel">
-        class HelloWorld extends React.Component {
-            render() {
-                return <div>Hello World </div>
-            }
+        const HelloWorld = () => {
+                return <div>Welcome to React {'>='} 16.8 </div>
         }
-
         let ele = document.getElementById("root");
         ReactDOM.render(<HelloWorld />, ele)
   
     </script>
-    <!-- <script type="text/babel">
-        const HelloWorld=()=>{
-                return <div>Welcome to React >= 16.8 </div>
-        }
-        let ele = document.getElementById("root");
-        ReactDOM.render(<HelloWorld />, ele)
-  
-    </script> -->
 </body>
 
 </html>

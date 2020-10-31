@@ -14,17 +14,9 @@
 <body>
     <div id="root"></div>
     <script type="text/babel">
-        class HelloWorld extends React.Component {
-            render() {
-                return <div>Hello World From Child </div> 
-            }
-        }
+        const HelloWorld = () => <div>Hello World From Child </div> ;
 
-        class Main extends React.Component {
-            render() {
-                return <HelloWorld />
-            }
-        }
+        const Main =() => <HelloWorld />;
         
         let ele = document.getElementById("root");
         ReactDOM.render(<Main />, ele)
