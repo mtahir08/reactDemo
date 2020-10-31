@@ -10,6 +10,6 @@ React:
          -  A component is a self-contained module that renders some output.
 - React will efficiently update and render just the right components when your data changes
 Virtual Dom:
-Babel
+Babel (JavaScript compiler)
 JSX (JavaScript XML)
-JSX Expressions `<h1> { } </h1> `
+JSX Expressions <h1> { } </h1>
