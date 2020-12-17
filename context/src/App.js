@@ -1,16 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
-import Text from './Text';
+
+import Header from './components/Header';
+import Main from './components/Main';
+import { LIGHT } from './constants';
+import ThemeContext from './context/ThemeContext';
 
 function App() {
-  const [theme, setTheme] = useState('red');
-  const onClickHandler = () => setTheme('green');
+  const themeHook = React.useState(LIGHT);
   return (
-    <div className="App">
-      <h1>Theme</h1>
-      <Text theme={theme}/>
-      <button onClick={onClickHandler}>Change it</button>
-    </div>
+    <ThemeContext.Provider value={themeHook}>
+      <div className="App">
+
+        <Header />
+        <Main />
+
+      </div>
+    </ThemeContext.Provider>
   );
 }
 
